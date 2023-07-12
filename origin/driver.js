@@ -376,9 +376,11 @@ $(document).ready(function() {
       .then(function(aSignedData) {
         append("getOut", "Signed Data assembled: " + aSignedData + "\n");
         console.log(state.publicKey, aSignedData, signatureValue);
+        console.log("[LOG] Will verify the signature 1");
         return verifySignature(state.publicKey, aSignedData, signatureValue);
       })
       .then(function(aSignatureValid) {
+        console.log("[LOG] Will verify the signature 1", aSignatureValid);
         test("getOut", aSignatureValid, "The token signature must be valid.");
         resultColor("getOut", aSignatureValid);
       });

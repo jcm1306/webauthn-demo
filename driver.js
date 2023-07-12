@@ -750,9 +750,11 @@ $(document).ready(function() {
       .then(function(aSignedData) {
         append("getOut", "Signed Data assembled: " + aSignedData + "\n");
         console.log(state.publicKey, aSignedData, aAssertion.response.signature);
+        console.log("[LOG] Will verify the signature");
         return verifySignature(state.publicKey, aSignedData, getArrayBuffer("getOut", aAssertion.response.signature));
       })
       .then(function(aSignatureValid) {
+        console.log("[LOG] Will verify the signature", aSignatureValid);
         test("getOut", aSignatureValid, "The token signature must be valid.");
       });
     }).catch(function (aErr) {
