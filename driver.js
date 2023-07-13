@@ -373,6 +373,10 @@ function verifySignature(key, data, derSig) {
   let alg = {name: "ECDSA", hash: "SHA-256"};
 
   console.log("[LOG] Will call crypto.subtle.verify");
+  console.log("[LOG] alg:    ", alg);
+  console.log("[LOG] key:    ", key);
+  console.log("[LOG] sig:    ", sig);
+  console.log("[LOG] data:   ", data);
   return crypto.subtle.verify(alg, key, sig, data);
 }
 
